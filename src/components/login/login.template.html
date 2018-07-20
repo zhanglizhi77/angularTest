@@ -1,0 +1,13 @@
+<div>
+    <form>
+        <div>
+            <label>账号</label>
+            <input type="text"  name="account" [(ngModel)]="user.account" />
+        </div>
+        <div>
+            <label>密码</label>
+            <input type="password" name="password" [(ngModel)]="user.password" />
+        </div>
+        <div (click)="login()">登录</div>       
+    </form>
+</div>
