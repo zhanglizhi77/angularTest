@@ -1,13 +1,13 @@
 <div>
-    <form>
+    <h1 bind-innerHTML="title"></h1>
         <div>
             <label>账号</label>
-            <input type="text"  name="account" [(ngModel)]="user.account" />
+            <input type="text"  name="account" bindon-ngModel="user.account" [readonly]="isReadonly" />
         </div>
         <div>
             <label>密码</label>
             <input type="password" name="password" [(ngModel)]="user.password" />
         </div>
-        <div (click)="login()">登录</div>       
-    </form>
+        <div (click)="login()" bind-ngClass="{'login':currentBtn}" [ngStyle]="{'color':'yellow'}">登录</div> 
+        <div on-click="register()" [ngClass]="{'register':currentBtn}" [style.color]="currentBtn ? 'red' : 'green'">注册</div>        
 </div>

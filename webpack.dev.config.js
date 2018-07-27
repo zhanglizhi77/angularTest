@@ -11,7 +11,7 @@ module.exports = merge(baseConfig,{
         hot:true,
         proxy:{
             '/':{
-                targrt:'http://szdev.fabigbig.com/'
+                targrt:'http://192.168.66.28:8080'
             }
         }
     }
