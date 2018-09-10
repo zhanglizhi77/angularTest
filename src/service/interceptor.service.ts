@@ -27,17 +27,24 @@ import {tap} from 'rxjs/operators';
 export class InterceptorService implements HttpInterceptor{
     intercept(req : HttpRequest<any>,next : HttpHandler) : Observable<HttpEvent<any>>{
         const authReq = req.clone({
-            headers: req.headers.set('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
+            headers: req.headers.set('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8')
         });
-        return next.handle(req).pipe(
+        return next.handle(authReq).pipe(
             tap(
                 event =>{
                     if(event instanceof HttpResponse){
-                        console.log(1,event);
+                        console.log(event);
                     }
                 },
                 error => {
-                    console.log(2,error);
+                    switch(error.status){
+                        case 400:
+                            console.log('错误的请求');
+                            break;
+                        case 404:
+                            console.log('无法找到请求的位置');
+                            break;
+                    }
                 }
             )
         );

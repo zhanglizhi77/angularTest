@@ -19,7 +19,7 @@ export class LoginComponent{
     login(){
         this.service.post('/login.action',this.user,(result)=>{
             console.log(result);
-        })
+        });
         
     }
     register(){

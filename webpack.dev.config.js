@@ -11,7 +11,8 @@ module.exports = merge(baseConfig,{
         hot:true,
         proxy:{
             '/':{
-                targrt:'http://192.168.66.28:8080'
+                target:'http://127.0.0.1:19000',
+                changeOrigin: true
             }
         }
     }
